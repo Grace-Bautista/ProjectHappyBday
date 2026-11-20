@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17152f">
+  <title>Ron's Secret Quest</title>
+  <meta name="description" content="A little pixel adventure with a secret at the end.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game" aria-label="Ron's Secret Quest">
+    <header class="hud">
+      <span class="logo">★ RON'S QUEST</span>
+      <span id="zone">THE LOST LIGHTS</span>
+      <span class="stars" aria-label="Stars recovered"><span id="star0">✦</span><span id="star1">✦</span><span id="star2">✦</span></span>
+    </header>
+    <div class="questline"><span id="quest">CHAPTER 1 · THE FIRST LIGHT</span><div class="status"><span id="hearts" aria-label="Three hearts">♥ ♥ ♥</span><button id="sound" class="sound" aria-label="Mute game audio" aria-pressed="true">♫ ON</button></div></div>
+    <div class="screen">
+      <canvas id="world" width="480" height="270" aria-label="Pixel adventure through a mountain, cave, and sea. Move with arrow keys, jump and swim upward with Space or Up."></canvas>
+      <div class="hint" id="hint" role="status"></div>
+
+      <section class="veil" id="intro" aria-labelledby="introTitle">
+        <div class="card">
+          <p class="kicker">A CASTLE WITH NO LIGHTS</p>
+          <h1 id="introTitle">Ron's Secret Quest</h1>
+          <p>At the far end of the valley, a castle door has gone dark. Three stars are sealed across the land. Find two hidden sparks to wake each one, solve its keeper's riddle, and discover what waits behind the door.</p>
+          <p class="small">Climb the mountain, descend through the cave, and cross the sea. Watch for moving platforms and curious blocks. Move with ← → or A D. Jump with Space, ↑, or W; hold it to swim upward.</p>
+          <button class="cta" id="start">BEGIN THE STORY →</button>
+        </div>
+      </section>
+
+      <section class="veil hidden" id="riddle" role="dialog" aria-modal="true" aria-labelledby="riddleTitle">
+        <div class="card">
+          <p class="kicker" id="riddleChapter">THE FIRST KEEPER</p>
+          <h2 id="riddleTitle">A question at the star</h2>
+          <p id="riddleStory"></p>
+          <p class="question" id="riddleQuestion"></p>
+          <div class="answers" id="answers"></div>
+          <p class="feedback" id="feedback" role="status"></p>
+        </div>
+      </section>
+
+      <section class="veil hidden" id="memory" role="dialog" aria-modal="true" aria-labelledby="memoryTitle">
+        <div class="card memory-card">
+          <p class="kicker">A STARLIGHT MEMORY</p>
+          <h2 id="memoryTitle">A moment appears</h2>
+          <div class="media-frame" id="mediaFrame"></div>
+          <p id="mediaCaption"></p>
+          <button class="cta" id="nextMemory">NEXT →</button>
+        </div>
+      </section>
+
+      <section class="veil hidden" id="ending" role="dialog" aria-modal="true" aria-labelledby="endingTitle">
+        <div class="confetti" id="confetti"></div>
+        <div class="card ending-card">
+          <p class="kicker">THE FINAL DOOR OPENS</p>
+          <h2 id="endingTitle">Surprise, Ron!</h2>
+          <p class="birthday" id="birthday">Happy Birthday Ron!</p>
+          <div class="gift-reveal-space">
+            <div class="gift-stage" id="giftStage">
+              <span class="gift-sparkle sparkle-one" aria-hidden="true">✦</span><span class="gift-sparkle sparkle-two" aria-hidden="true">✧</span><span class="gift-sparkle sparkle-three" aria-hidden="true">✦</span>
+              <button class="gift" id="gift" aria-label="Open the birthday gift">
+                <span class="gift-lid"></span><span class="gift-bow bow-left"></span><span class="gift-bow bow-right"></span><span class="gift-box"></span><span class="gift-ribbon"></span>
+              </button>
+              <p class="gift-prompt">ONE LAST GIFT · TAP TO OPEN</p>
+            </div>
+            <div class="final-frame gift-reveal" id="finalFrame" hidden><video id="finalVideo" controls playsinline preload="metadata" hidden></video><p id="videoPending">A special video greeting will appear here soon.</p></div>
+          </div>
+          <button class="cta" id="again">PLAY AGAIN ↻</button>
+        </div>
+      </section>
+    </div>
+    <footer class="controls"><p>← → or A D to move<br>SPACE / ↑ / W to jump · hold to swim</p><div class="touch"><button class="key" id="left" aria-label="Move left">◀</button><button class="key" id="right" aria-label="Move right">▶</button><button class="key jump" id="jump" aria-label="Jump or swim upward">JUMP ↑</button></div></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>

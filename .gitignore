@@ -1,0 +1,5 @@
+# Local deployment output and older project versions.
+dist/
+.sites-checkout/
+.openai/
+_archive/
